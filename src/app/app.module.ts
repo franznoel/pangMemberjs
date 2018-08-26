@@ -9,9 +9,14 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { MembersComponent } from './members/members.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReportsComponent } from './reports/reports.component';
+import { MembersListComponent } from './members/members-list/members-list.component';
+import { MembersAddComponent } from './members/members-add/members-add.component';
 
 const appRoutes: Routes = [
-  { path: 'members', component: MembersComponent },
+  { path: 'members', component: MembersComponent, children: [
+      { path: 'add', component: MembersAddComponent },
+    ]
+  },
   { path: 'profile', component: ProfileComponent },
   { path: 'reports', component: ReportsComponent },
 ];
@@ -23,7 +28,9 @@ const appRoutes: Routes = [
     SidebarComponent,
     MembersComponent,
     ProfileComponent,
-    ReportsComponent
+    ReportsComponent,
+    MembersListComponent,
+    MembersAddComponent
   ],
   imports: [
     BrowserModule,
